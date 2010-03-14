@@ -1,0 +1,35 @@
+== Features ==
+- Vertical split
+- Remember tree selection
+- Select "only decorate local branches"
+- Diff this with selected in commit list
+- Prefs grouped by area, more prefs for diff etc.
+- Auto-refresh while writing commit-message / indicator when committing
+- Font-Size
+
+=== Technical ===
+- PBGitRevSpecifier subclass for paths
+- use [PBGitRevSpecifier ref]
+- start on PBGitRemote
+- Value-Transformer for "Date" column
+- Quicklook with SL
+
+=== Bikeshed ===
+- Size bigger for diffs before displaying "this is a large diff"
+- @class-forward declaration when writing new code
+
+=== Bugs ===
+- Hunk-stage with umlauts! #197
+
+=== Other ===
+- Survey-writeup
+- Cleaning of Wiki / Lighthouse
+- Archive-Versions of GitX on website
+
+=== dir.git stuff #15 ===
+1. edit Info.plist
+2a. /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -r -f /Applications/GitX.app or
+2b. /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -u -r -f /Applications/GitX.app
+(Load and unload).
+
+Also: /usr/libexec/PlistBuddy -c "Print LSHandlers:10" ~/Library/Preferences/com.apple.LaunchServices.plist
