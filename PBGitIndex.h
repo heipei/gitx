@@ -50,11 +50,13 @@ extern NSString *PBGitIndexOperationFailed;
 	NSUInteger refreshStatus;
 	NSDictionary *amendEnvironment;
 	BOOL amend;
+    BOOL noVerify;
 }
 
 // Whether we want the changes for amending,
 // or for
 @property BOOL amend;
+@property BOOL noVerify;
 
 - (id)initWithRepository:(PBGitRepository *)repository workingDirectory:(NSURL *)workingDirectory;
 

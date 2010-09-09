@@ -54,7 +54,7 @@ NSString *PBGitIndexOperationFailed = @"PBGitIndexOperationFailed";
 
 @implementation PBGitIndex
 
-@synthesize amend;
+@synthesize amend, noVerify;
 
 - (id)initWithRepository:(PBGitRepository *)theRepository workingDirectory:(NSURL *)theWorkingDirectory
 {
@@ -176,12 +176,14 @@ NSString *PBGitIndexOperationFailed = @"PBGitIndexOperationFailed";
 	[self postCommitUpdate:@"Creating commit"];
 	int ret = 1;
 	
-	[self postCommitUpdate:@"Running hooks"];
-	if (![repository executeHook:@"pre-commit" output:nil])
-		return [self postCommitFailure:@"Pre-commit hook failed"];
-	
-	if (![repository executeHook:@"commit-msg" withArgs:[NSArray arrayWithObject:commitMessageFile] output:nil])
-		return [self postCommitFailure:@"Commit-msg hook failed"];
+    if(!noVerify) {
+        [self postCommitUpdate:@"Running hooks"];
+        if (![repository executeHook:@"pre-commit" output:nil])
+            return [self postCommitFailure:@"Pre-commit hook failed"];
+
+        if (![repository executeHook:@"commit-msg" withArgs:[NSArray arrayWithObject:commitMessageFile] output:nil])
+            return [self postCommitFailure:@"Commit-msg hook failed"];
+    }
 	
 	commitMessage = [NSString stringWithContentsOfFile:commitMessageFile encoding:NSUTF8StringEncoding error:nil];
 	
