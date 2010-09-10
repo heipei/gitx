@@ -123,7 +123,7 @@
     }
 
 	for (PBChangedFile *file in selectedFiles)
-		if (!file.hasUnstagedChanges)
+		if (!file.hasUnstagedChanges || file.status == NEW)
 			return menu;
 
 	NSMenuItem *discardItem = [[NSMenuItem alloc] initWithTitle:@"Discard changes…" action:@selector(discardFilesAction:) keyEquivalent:@""];
