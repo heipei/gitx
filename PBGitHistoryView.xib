@@ -512,12 +512,12 @@
 																			</object>
 																			<object class="NSMutableArray" key="dict.values">
 																				<bool key="EncodedWithXMLCoder">YES</bool>
-																				<integer value="3"/>
+																				<integer value="2"/>
 																				<integer value="1040"/>
 																				<integer value="1"/>
 																			</object>
 																		</object>
-																		<string key="NS.format">MMMM d, yyyy h:mm a</string>
+																		<string key="NS.format">yyyy-dd-MM HH:mm</string>
 																		<bool key="NS.natural">NO</bool>
 																	</object>
 																	<reference key="NSControlView" ref="254268962"/>
